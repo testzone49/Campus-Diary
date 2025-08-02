@@ -1,1 +1,191 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IIT Bombay Campus Diary Mock Test</title>
+  <style>
+    body { font-family: Arial; background: #f4f4f4; padding: 20px; }
+    .question-box { background: white; padding: 15px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
+    .question { font-weight: bold; }
+    .options input { margin-right: 8px; }
+    #submitBtn { padding: 10px 20px; background: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    #scoreBox { margin-top: 20px; font-size: 18px; font-weight: bold; }
+    .correct { background-color: #d4edda; }
+    .incorrect { background-color: #f8d7da; }
+  </style>
+</head>
+<body>
+
+  <h2>IIT Bombay Campus Diary - Mock Test (25 Questions)</h2>
+  <form id="quizForm"></form>
+  <button id="submitBtn">Submit</button>
+  <div id="scoreBox"></div>
+
+  <script>
+    const questions = [
+      {
+        q: "Who was the Chief Guest for IIT Bombay's 66th Teachers’ Day celebration?",
+        options: ["Dr. Raghunath Mashelkar", "Dr. Shashi Tharoor", "Lt Gen Dr. Madhuri Kanitkar (Retd)", "Dr. Abdul Kalam"],
+        answer: 2
+      },
+      {
+        q: "How many degrees were awarded during the 62nd Convocation of IIT Bombay in 2024?",
+        options: ["3019", "3303", "498", "4000"],
+        answer: 1
+      },
+      {
+        q: "In QS World University Rankings 2026, IIT Bombay was ranked _____ globally.",
+        options: ["72nd", "98th", "129th", "143rd"],
+        answer: 2
+      },
+      {
+        q: "Who received the President of India Gold Medal in 2024?",
+        options: ["Kaivalya Daga", "Vedang Asgaonkar", "Sunandinee Mehra", "Satyam Rath"],
+        answer: 1
+      },
+      {
+        q: "Theme of CSR Conclave 2025 held at IIT Bombay was:",
+        options: ["Tech for Youth", "Fuelling Technology for Nation Building", "Digital India", "Innovation for Bharat"],
+        answer: 1
+      },
+      {
+        q: "Who was the Chief Guest on IIT Bombay’s 66th Foundation Day 2025?",
+        options: ["Mr. Ravi Pandit", "Dr. Kiran Mazumdar Shaw", "Nandan Nilekani", "R. Chidambaram"],
+        answer: 0
+      },
+      {
+        q: "Department of Aerospace Engineering received which position in Clean & Green Campus 2024?",
+        options: ["1st", "2nd", "3rd", "Not Listed"],
+        answer: 1
+      },
+      {
+        q: "Project Evergreen launched by alumni is focused on:",
+        options: ["Renewable energy", "Student housing", "Startup mentoring", "Faculty exchange"],
+        answer: 1
+      },
+      {
+        q: "Prof. Manjesh Kumar Hanawal received award for development of:",
+        options: ["Smart Grid", "Biofuel Reactor", "Endpoint Security Tool 'Vajra'", "Waste Management App"],
+        answer: 2
+      },
+      {
+        q: "What initiative was launched with Dr. Sukanta Majumdar in Jan 2025?",
+        options: ["AI Cell", "GreenPrint Newsletter", "Smart Hostel", "Water Innovation Lab"],
+        answer: 1
+      },
+      {
+        q: "Name of the newsletter for sustainability at IIT Bombay?",
+        options: ["EcoBombay", "GreenTech", "GreenPrint", "IITB Goes Green"],
+        answer: 2
+      },
+      {
+        q: "Who received Prof. H.H. Mathur Award in 2024?",
+        options: ["Prof. Maryam Shojaei Baghini", "Prof. Rajaraman", "Prof. Iyer", "Prof. Aditi Chaubal"],
+        answer: 0
+      },
+      {
+        q: "Name the BTech CSE student who won 'Miss Jayati Deshmukh Medal'?",
+        options: ["Vedang Asgaonkar", "Kaivalya Daga", "Tanmay Dokania", "Shashwat Chakraborty"],
+        answer: 0
+      },
+      {
+        q: "Which medal was awarded to Sunandinee Mehra from Civil Engineering?",
+        options: ["Vidyasagar Nehra", "Hindi Vidya Bhavan", "Sharad Maloo", "None"],
+        answer: 0
+      },
+      {
+        q: "How many PhDs were awarded in 2023-24?",
+        options: ["3303", "3019", "498", "191"],
+        answer: 2
+      },
+      {
+        q: "Prof. Ganesh Ramakrishnan was awarded in which research area?",
+        options: ["Blockchain", "Natural Language Processing", "Semiconductor Design", "Genomics"],
+        answer: 1
+      },
+      {
+        q: "When was the Interim session of 63rd Convocation held?",
+        options: ["10 Jan 2025", "22 Feb 2025", "5 Mar 2025", "1 Apr 2025"],
+        answer: 1
+      },
+      {
+        q: "Who inaugurated Café Quantum at IIT Bombay in June 2025?",
+        options: ["Prof. Ravindra Gudi", "Prof. Milind Atrey", "Prof. K.V. Krishna Rao", "All of the above"],
+        answer: 3
+      },
+      {
+        q: "How many total attendees were present at CSR Conclave 2025?",
+        options: ["100+", "250+", "500+", "1000+"],
+        answer: 2
+      },
+      {
+        q: "On which date was International Yoga Day 2025 celebrated at IIT Bombay?",
+        options: ["1st June", "10th June", "21st June", "30th June"],
+        answer: 2
+      },
+      {
+        q: "How many medals and prizes were distributed in the 62nd convocation?",
+        options: ["Over 15", "Around 20", "More than 30", "Not Mentioned"],
+        answer: 2
+      },
+      {
+        q: "Who received Dr. Shankar Dayal Sharma Gold Medal?",
+        options: ["Vedang Asgaonkar", "Sunandinee Mehra", "Kaivalya Daga", "Waqar Mirza"],
+        answer: 2
+      },
+      {
+        q: "Which department won 'Best Academic Unit' under Cleanliness Awards?",
+        options: ["Mechanical", "Civil Engineering", "Physics", "CSE"],
+        answer: 1
+      },
+      {
+        q: "Which former Prime Minister was remembered during Alumni Day 2024?",
+        options: ["Narendra Modi", "Indira Gandhi", "Manmohan Singh", "Atal Bihari Vajpayee"],
+        answer: 2
+      },
+      {
+        q: "Which initiative featured QR codes for sanitation feedback?",
+        options: ["Green Feedback", "SanTrack", "Clean Campus QR", "Swachhata QR"],
+        answer: 3
+      }
+    ];
+
+    const form = document.getElementById("quizForm");
+    questions.forEach((q, i) => {
+      const box = document.createElement("div");
+      box.classList.add("question-box");
+      box.innerHTML = `<div class="question">${i + 1}. ${q.q}</div>`;
+      q.options.forEach((opt, j) => {
+        box.innerHTML += `
+          <div class="options">
+            <label>
+              <input type="radio" name="q${i}" value="${j}"/> ${opt}
+            </label>
+          </div>
+        `;
+      });
+      form.appendChild(box);
+    });
+
+    document.getElementById("submitBtn").onclick = () => {
+      let score = 0;
+      questions.forEach((q, i) => {
+        const ans = document.querySelector(`input[name="q${i}"]:checked`);
+        const boxes = document.querySelectorAll(`input[name="q${i}"]`);
+        boxes.forEach((b, j) => {
+          if (parseInt(b.value) === q.answer) {
+            b.parentElement.parentElement.classList.add("correct");
+          } else if (b.checked) {
+            b.parentElement.parentElement.classList.add("incorrect");
+          }
+        });
+        if (ans && parseInt(ans.value) === q.answer) score++;
+      });
+      document.getElementById("scoreBox").textContent = `Your Score: ${score} / ${questions.length}`;
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    };
+  </script>
+</body>
+</html>
