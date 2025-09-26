@@ -1,191 +1,1138 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>IIT Bombay Campus Diary Mock Test</title>
-  <style>
-    body { font-family: Arial; background: #f4f4f4; padding: 20px; }
-    .question-box { background: white; padding: 15px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
-    .question { font-weight: bold; }
-    .options input { margin-right: 8px; }
-    #submitBtn { padding: 10px 20px; background: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer; }
-    #scoreBox { margin-top: 20px; font-size: 18px; font-weight: bold; }
-    .correct { background-color: #d4edda; }
-    .incorrect { background-color: #f8d7da; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>प्रयोगशाळा परीक्षा - प्रश्नसंच 121 ते 200</title>
+    <style>
+        /* CSS स्टाइलिंग (तुमच्या गरजेनुसार बदलू शकता) */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .question-section {
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 15px;
+        }
+        .question-section:last-child {
+            border-bottom: none;
+        }
+        .question-number {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #007bff;
+            margin-right: 10px;
+        }
+        .question-text {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            display: inline;
+        }
+        .options label {
+            display: block;
+            margin: 5px 0;
+            padding: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .options label:hover {
+            background-color: #e2e6ea;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .submit-btn:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: none; /* सुरुवातीला लपवलेले */
+        }
+        /* अचूक उत्तर दर्शवण्यासाठी CSS */
+        .show-answer {
+            font-weight: bold;
+            color: #007bff;
+            margin-top: 5px;
+            display: none;
+        }
+        .correct-answer {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .incorrect-answer {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+    </style>
 </head>
 <body>
+    <div class="container">
+        <h2 style="text-align: center;">प्रयोगशाळा परीक्षा - प्रश्नसंच 121 ते 200</h2>
+        <p style="text-align: center; color: #6c757d;">सामान्य ज्ञान, क्षमता आणि तांत्रिक विषय</p>
 
-  <h2>IIT Bombay Campus Diary - Mock Test (25 Questions)</h2>
-  <form id="quizForm"></form>
-  <button id="submitBtn">Submit</button>
-  <div id="scoreBox"></div>
+        <h3 style="color: #007bff;">भाग 1: सामान्य ज्ञान आणि क्षमता (121-140)</h3>
 
-  <script>
-    const questions = [
-      {
-        q: "Who was the Chief Guest for IIT Bombay's 66th Teachers’ Day celebration?",
-        options: ["Dr. Raghunath Mashelkar", "Dr. Shashi Tharoor", "Lt Gen Dr. Madhuri Kanitkar (Retd)", "Dr. Abdul Kalam"],
-        answer: 2
-      },
-      {
-        q: "How many degrees were awarded during the 62nd Convocation of IIT Bombay in 2024?",
-        options: ["3019", "3303", "498", "4000"],
-        answer: 1
-      },
-      {
-        q: "In QS World University Rankings 2026, IIT Bombay was ranked _____ globally.",
-        options: ["72nd", "98th", "129th", "143rd"],
-        answer: 2
-      },
-      {
-        q: "Who received the President of India Gold Medal in 2024?",
-        options: ["Kaivalya Daga", "Vedang Asgaonkar", "Sunandinee Mehra", "Satyam Rath"],
-        answer: 1
-      },
-      {
-        q: "Theme of CSR Conclave 2025 held at IIT Bombay was:",
-        options: ["Tech for Youth", "Fuelling Technology for Nation Building", "Digital India", "Innovation for Bharat"],
-        answer: 1
-      },
-      {
-        q: "Who was the Chief Guest on IIT Bombay’s 66th Foundation Day 2025?",
-        options: ["Mr. Ravi Pandit", "Dr. Kiran Mazumdar Shaw", "Nandan Nilekani", "R. Chidambaram"],
-        answer: 0
-      },
-      {
-        q: "Department of Aerospace Engineering received which position in Clean & Green Campus 2024?",
-        options: ["1st", "2nd", "3rd", "Not Listed"],
-        answer: 1
-      },
-      {
-        q: "Project Evergreen launched by alumni is focused on:",
-        options: ["Renewable energy", "Student housing", "Startup mentoring", "Faculty exchange"],
-        answer: 1
-      },
-      {
-        q: "Prof. Manjesh Kumar Hanawal received award for development of:",
-        options: ["Smart Grid", "Biofuel Reactor", "Endpoint Security Tool 'Vajra'", "Waste Management App"],
-        answer: 2
-      },
-      {
-        q: "What initiative was launched with Dr. Sukanta Majumdar in Jan 2025?",
-        options: ["AI Cell", "GreenPrint Newsletter", "Smart Hostel", "Water Innovation Lab"],
-        answer: 1
-      },
-      {
-        q: "Name of the newsletter for sustainability at IIT Bombay?",
-        options: ["EcoBombay", "GreenTech", "GreenPrint", "IITB Goes Green"],
-        answer: 2
-      },
-      {
-        q: "Who received Prof. H.H. Mathur Award in 2024?",
-        options: ["Prof. Maryam Shojaei Baghini", "Prof. Rajaraman", "Prof. Iyer", "Prof. Aditi Chaubal"],
-        answer: 0
-      },
-      {
-        q: "Name the BTech CSE student who won 'Miss Jayati Deshmukh Medal'?",
-        options: ["Vedang Asgaonkar", "Kaivalya Daga", "Tanmay Dokania", "Shashwat Chakraborty"],
-        answer: 0
-      },
-      {
-        q: "Which medal was awarded to Sunandinee Mehra from Civil Engineering?",
-        options: ["Vidyasagar Nehra", "Hindi Vidya Bhavan", "Sharad Maloo", "None"],
-        answer: 0
-      },
-      {
-        q: "How many PhDs were awarded in 2023-24?",
-        options: ["3303", "3019", "498", "191"],
-        answer: 2
-      },
-      {
-        q: "Prof. Ganesh Ramakrishnan was awarded in which research area?",
-        options: ["Blockchain", "Natural Language Processing", "Semiconductor Design", "Genomics"],
-        answer: 1
-      },
-      {
-        q: "When was the Interim session of 63rd Convocation held?",
-        options: ["10 Jan 2025", "22 Feb 2025", "5 Mar 2025", "1 Apr 2025"],
-        answer: 1
-      },
-      {
-        q: "Who inaugurated Café Quantum at IIT Bombay in June 2025?",
-        options: ["Prof. Ravindra Gudi", "Prof. Milind Atrey", "Prof. K.V. Krishna Rao", "All of the above"],
-        answer: 3
-      },
-      {
-        q: "How many total attendees were present at CSR Conclave 2025?",
-        options: ["100+", "250+", "500+", "1000+"],
-        answer: 2
-      },
-      {
-        q: "On which date was International Yoga Day 2025 celebrated at IIT Bombay?",
-        options: ["1st June", "10th June", "21st June", "30th June"],
-        answer: 2
-      },
-      {
-        q: "How many medals and prizes were distributed in the 62nd convocation?",
-        options: ["Over 15", "Around 20", "More than 30", "Not Mentioned"],
-        answer: 2
-      },
-      {
-        q: "Who received Dr. Shankar Dayal Sharma Gold Medal?",
-        options: ["Vedang Asgaonkar", "Sunandinee Mehra", "Kaivalya Daga", "Waqar Mirza"],
-        answer: 2
-      },
-      {
-        q: "Which department won 'Best Academic Unit' under Cleanliness Awards?",
-        options: ["Mechanical", "Civil Engineering", "Physics", "CSE"],
-        answer: 1
-      },
-      {
-        q: "Which former Prime Minister was remembered during Alumni Day 2024?",
-        options: ["Narendra Modi", "Indira Gandhi", "Manmohan Singh", "Atal Bihari Vajpayee"],
-        answer: 2
-      },
-      {
-        q: "Which initiative featured QR codes for sanitation feedback?",
-        options: ["Green Feedback", "SanTrack", "Clean Campus QR", "Swachhata QR"],
-        answer: 3
-      }
-    ];
+        <div class="question-section" id="q121" data-correct-answer="A">
+            <span class="question-number">121.</span>
+            <span class="question-text">जगातील सर्वात लांब नदी कोणती आहे?</span>
+            <div class="options">
+                <label><input type="radio" name="q121" value="A"> A) नाईल (Nile)</label>
+                <label><input type="radio" name="q121" value="B"> B) ॲमेझॉन (Amazon)</label>
+                <label><input type="radio" name="q121" value="C"> C) गंगा</label>
+                <label><input type="radio" name="q121" value="D"> D) यांगत्से (Yangtze)</label>
+            </div>
+            <div class="show-answer">**उत्तर:** A) नाईल (Nile)</div>
+        </div>
 
-    const form = document.getElementById("quizForm");
-    questions.forEach((q, i) => {
-      const box = document.createElement("div");
-      box.classList.add("question-box");
-      box.innerHTML = `<div class="question">${i + 1}. ${q.q}</div>`;
-      q.options.forEach((opt, j) => {
-        box.innerHTML += `
-          <div class="options">
-            <label>
-              <input type="radio" name="q${i}" value="${j}"/> ${opt}
-            </label>
-          </div>
-        `;
-      });
-      form.appendChild(box);
-    });
+        <div class="question-section" id="q122" data-correct-answer="C">
+            <span class="question-number">122.</span>
+            <span class="question-text">'सकाळ' या शब्दाचा विरुद्धार्थी शब्द कोणता आहे?</span>
+            <div class="options">
+                <label><input type="radio" name="q122" value="A"> A) दिवस</label>
+                <label><input type="radio" name="q122" value="B"> B) उजाडणे</label>
+                <label><input type="radio" name="q122" value="C"> C) संध्याकाळ</label>
+                <label><input type="radio" name="q122" value="D"> D) रात्र</label>
+            </div>
+            <div class="show-answer">**उत्तर:** C) संध्याकाळ</div>
+        </div>
 
-    document.getElementById("submitBtn").onclick = () => {
-      let score = 0;
-      questions.forEach((q, i) => {
-        const ans = document.querySelector(`input[name="q${i}"]:checked`);
-        const boxes = document.querySelectorAll(`input[name="q${i}"]`);
-        boxes.forEach((b, j) => {
-          if (parseInt(b.value) === q.answer) {
-            b.parentElement.parentElement.classList.add("correct");
-          } else if (b.checked) {
-            b.parentElement.parentElement.classList.add("incorrect");
-          }
-        });
-        if (ans && parseInt(ans.value) === q.answer) score++;
-      });
-      document.getElementById("scoreBox").textContent = `Your Score: ${score} / ${questions.length}`;
-      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-    };
-  </script>
+        <div class="question-section" id="q123" data-correct-answer="B">
+            <span class="question-number">123.</span>
+            <span class="question-text">80 चे 20% किती होतात?</span>
+            <div class="options">
+                <label><input type="radio" name="q123" value="A"> A) 10</label>
+                <label><input type="radio" name="q123" value="B"> B) 16</label>
+                <label><input type="radio" name="q123" value="C"> C) 20</label>
+                <label><input type="radio" name="q123" value="D"> D) 40</label>
+            </div>
+            <div class="show-answer">**उत्तर:** B) 16</div>
+        </div>
+
+        <div class="question-section" id="q124" data-correct-answer="A">
+            <span class="question-number">124.</span>
+            <span class="question-text">'A person who studies plants is called a **____**.'</span>
+            <div class="options">
+                <label><input type="radio" name="q124" value="A"> A) Botanist</label>
+                <label><input type="radio" name="q124" value="B"> B) Zoologist</label>
+                <label><input type="radio" name="q124" value="C"> C) Geologist</label>
+                <label><input type="radio" name="q124" value="D"> D) Physician</label>
+            </div>
+            <div class="show-answer">**उत्तर:** A) Botanist</div>
+        </div>
+
+        <div class="question-section" id="q125" data-correct-answer="D">
+            <span class="question-number">125.</span>
+            <span class="question-text">महाराष्ट्रातील 'गेटवे ऑफ इंडिया' (Gateway of India) कोठे आहे?</span>
+            <div class="options">
+                <label><input type="radio" name="q125" value="A"> A) पुणे</label>
+                <label><input type="radio" name="q125" value="B"> B) नागपूर</label>
+                <label><input type="radio" name="q125" value="C"> C) औरंगाबाद (छत्रपती संभाजीनगर)</label>
+                <label><input type="radio" name="q125" value="D"> D) मुंबई</label>
+            </div>
+            <div class="show-answer">**उत्तर:** D) मुंबई</div>
+        </div>
+
+        <div class="question-section" id="q126" data-correct-answer="B">
+            <span class="question-number">126.</span>
+            <span class="question-text">खालीलपैकी कोणता 'इनपुट डिव्हाइस' (Input Device) नाही?</span>
+            <div class="options">
+                <label><input type="radio" name="q126" value="A"> A) माऊस (Mouse)</label>
+                <label><input type="radio" name="q126" value="B"> B) प्रिंटर (Printer)</label>
+                <label><input type="radio" name="q126" value="C"> C) कीबोर्ड (Keyboard)</label>
+                <label><input type="radio" name="q126" value="D"> D) स्कॅनर (Scanner)</label>
+            </div>
+            <div class="show-answer">**उत्तर:** B) प्रिंटर (Printer)</div>
+        </div>
+
+        <div class="question-section" id="q127" data-correct-answer="A">
+            <span class="question-number">127.</span>
+            <span class="question-text">'आ' हे कोणते अक्षर आहे?</span>
+            <div class="options">
+                <label><input type="radio" name="q127" value="A"> A) स्वर</label>
+                <label><input type="radio" name="q127" value="B"> B) व्यंजन</label>
+                <label><input type="radio" name="q127" value="C"> C) स्वरादी</label>
+                <label><input type="radio" name="q127" value="D"> D) विशेषण</label>
+            </div>
+            <div class="show-answer">**उत्तर:** A) स्वर</div>
+        </div>
+
+        <div class="question-section" id="q128" data-correct-answer="C">
+            <span class="question-number">128.</span>
+            <span class="question-text">सूर्यमालेतील सर्वात मोठा ग्रह कोणता आहे?</span>
+            <div class="options">
+                <label><input type="radio" name="q128" value="A"> A) पृथ्वी</label>
+                <label><input type="radio" name="q128" value="B"> B) मंगळ</label>
+                <label><input type="radio" name="q128" value="C"> C) गुरू (Jupiter)</label>
+                <label><input type="radio" name="q128" value="D"> D) शनि</label>
+            </div>
+            <div class="show-answer">**उत्तर:** C) गुरू (Jupiter)</div>
+        </div>
+
+        <div class="question-section" id="q129" data-correct-answer="B">
+            <span class="question-number">129.</span>
+            <span class="question-text">'To look before you leap' means:</span>
+            <div class="options">
+                <label><input type="radio" name="q129" value="A"> A) To jump high</label>
+                <label><input type="radio" name="q129" value="B"> B) To think carefully before acting</label>
+                <label><input type="radio" name="q129" value="C"> C) To look quickly</label>
+                <label><input type="radio" name="q129" value="D"> D) To jump immediately</label>
+            </div>
+            <div class="show-answer">**उत्तर:** B) To think carefully before acting</div>
+        </div>
+
+        <div class="question-section" id="q130" data-correct-answer="A">
+            <span class="question-number">130.</span>
+            <span class="question-text">50 आणि 70 यांचा मसावि (H.C.F.) किती आहे?</span>
+            <div class="options">
+                <label><input type="radio" name="q130" value="A"> A) 10</label>
+                <label><input type="radio" name="q130" value="B"> B) 5</label>
+                <label><input type="radio" name="q130" value="C"> C) 350</label>
+                <label><input type="radio" name="q130" value="D"> D) 2</label>
+            </div>
+            <div class="show-answer">**उत्तर:** A) 10</div>
+        </div>
+
+        <div class="question-section" id="q131" data-correct-answer="C">
+            <span class="question-number">131.</span>
+            <span class="question-text">भारताचा राष्ट्रीय प्राणी कोणता आहे?</span>
+            <div class="options">
+                <label><input type="radio" name="q131" value="A"> A) हत्ती</label>
+                <label><input type="radio" name="q131" value="B"> B) सिंह</label>
+                <label><input type="radio" name="q131" value="C"> C) वाघ</label>
+                <label><input type="radio" name="q131" value="D"> D) मोर</label>
+            </div>
+            <div class="show-answer">**उत्तर:** C) वाघ</div>
+        </div>
+
+        <div class="question-section" id="q132" data-correct-answer="D">
+            <span class="question-number">132.</span>
+            <span class="question-text">'पुस्तके' या शब्दाचे वचन बदला.</span>
+            <div class="options">
+                <label><input type="radio" name="q132" value="A"> A) पुस्तक</label>
+                <label><input type="radio" name="q132" value="B"> B) पुस्तका</label>
+                <label><input type="radio" name="q132" value="C"> C) पुस्तके (समान)</label>
+                <label><input type="radio" name="q132" value="D"> D) (पुस्तके हे अनेकवचन आहे, एकवचन 'पुस्तक' असेल) A आणि D दोन्ही योग्य.</label>
+            </div>
+            <div class="show-answer">**उत्तर:** A) पुस्तक (सर्वात योग्य एकवचन पर्याय)</div>
+        </div>
+
+        <div class="question-section" id="q133" data-correct-answer="B">
+            <span class="question-number">133.</span>
+            <span class="question-text">16 आणि 24 चा लसावि (L.C.M.) किती आहे?</span>
+            <div class="options">
+                <label><input type="radio" name="q133" value="A"> A) 8</label>
+                <label><input type="radio" name="q133" value="B"> B) 48</label>
+                <label><input type="radio" name="q133" value="C"> C) 96</label>
+                <label><input type="radio" name="q133" value="D"> D) 32</label>
+            </div>
+            <div class="show-answer">**उत्तर:** B) 48</div>
+        </div>
+
+        <div class="question-section" id="q134" data-correct-answer="C">
+            <span class="question-number">134.</span>
+            <span class="question-text">Fill in the blanks: 'She **____** singing when I arrived.'</span>
+            <div class="options">
+                <label><input type="radio" name="q134" value="A"> A) is</label>
+                <label><input type="radio" name="q134" value="B"> B) are</label>
+                <label><input type="radio" name="q134" value="C"> C) was</label>
+                <label><input type="radio" name="q134" value="D"> D) have</label>
+            </div>
+            <div class="show-answer">**उत्तर:** C) was</div>
+        </div>
+
+        <div class="question-section" id="q135" data-correct-answer="A">
+            <span class="question-number">135.</span>
+            <span class="question-text">'बॅरोमीटर' (Barometer) चा उपयोग काय मोजण्यासाठी केला जातो?</span>
+            <div class="options">
+                <label><input type="radio" name="q135" value="A"> A) वातावरणाचा दाब (Atmospheric Pressure)</label>
+                <label><input type="radio" name="q135" value="B"> B) तापमान (Temperature)</label>
+                <label><input type="radio" name="q135" value="C"> C) आर्द्रता (Humidity)</label>
+                <label><input type="radio" name="q135" value="D"> D) वेग (Speed)</label>
+            </div>
+            <div class="show-answer">**उत्तर:** A) वातावरणाचा दाब (Atmospheric Pressure)</div>
+        </div>
+
+        <div class="question-section" id="q136" data-correct-answer="D">
+            <span class="question-number">136.</span>
+            <span class="question-text">भारतातील 'लोहपुरुष' (Iron Man) म्हणून कोणाला ओळखले जाते?</span>
+            <div class="options">
+                <label><input type="radio" name="q136" value="A"> A) जवाहरलाल नेहरू</label>
+                <label><input type="radio" name="q136" value="B"> B) महात्मा गांधी</label>
+                <label><input type="radio" name="q136" value="C"> C) सुभाषचंद्र बोस</label>
+                <label><input type="radio" name="q136" value="D"> D) सरदार वल्लभभाई पटेल</label>
+            </div>
+            <div class="show-answer">**उत्तर:** D) सरदार वल्लभभाई पटेल</div>
+        </div>
+
+        <div class="question-section" id="q137" data-correct-answer="A">
+            <span class="question-number">137.</span>
+            <span class="question-text">'जलद' या शब्दाचा समानार्थी शब्द कोणता?</span>
+            <div class="options">
+                <label><input type="radio" name="q137" value="A"> A) शीघ्र</label>
+                <label><input type="radio" name="q137" value="B"> B) हळू</label>
+                <label><input type="radio" name="q137" value="C"> C) शांत</label>
+                <label><input type="radio" name="q137" value="D"> D) मंद</label>
+            </div>
+            <div class="show-answer">**उत्तर:** A) शीघ्र</div>
+        </div>
+
+        <div class="question-section" id="q138" data-correct-answer="C">
+            <span class="question-number">138.</span>
+            <span class="question-text">'If 5A = 20, then A = ?'</span>
+            <div class="options">
+                <label><input type="radio" name="q138" value="A"> A) 5</label>
+                <label><input type="radio" name="q138" value="B"> B) 10</label>
+                <label><input type="radio" name="q138" value="C"> C) 4</label>
+                <label><input type="radio" name="q138" value="D"> D) 25</label>
+            </div>
+            <div class="show-answer">**उत्तर:** C) 4</div>
+        </div>
+
+        <div class="question-section" id="q139" data-correct-answer="B">
+            <span class="question-number">139.</span>
+            <span class="question-text">खालीलपैकी कोणता 'ऑपरेटिंग सिस्टीम' (Operating System) नाही?</span>
+            <div class="options">
+                <label><input type="radio" name="q139" value="A"> A) Windows</label>
+                <label><input type="radio" name="q139" value="B"> B) MS Word</label>
+                <label><input type="radio" name="q139" value="C"> C) Linux</label>
+                <label><input type="radio" name="q139" value="D"> D) macOS</label>
+            </div>
+            <div class="show-answer">**उत्तर:** B) MS Word (हे ॲप्लिकेशन सॉफ्टवेअर आहे)</div>
+        </div>
+
+        <div class="question-section" id="q140" data-correct-answer="D">
+            <span class="question-number">140.</span>
+            <span class="question-text">भारतातील 'पहिली महिला रेल्वे मंत्री' कोण होत्या?</span>
+            <div class="options">
+                <label><input type="radio" name="q140" value="A"> A) निर्मला सीतारामन</label>
+                <label><input type="radio" name="q140" value="B"> B) सुषमा स्वराज</label>
+                <label><input type="radio" name="q140" value="C"> C) प्रतिभा पाटील</label>
+                <label><input type="radio" name="q140" value="D"> D) ममता बॅनर्जी</label>
+            </div>
+            <div class="show-answer">**उत्तर:** D) ममता बॅनर्जी</div>
+        </div>
+
+        <hr>
+
+        <h3 style="color: #007bff;">भाग 2: प्रयोगशाळा तंत्रज्ञान आणि सुरक्षा (141-200)</h3>
+
+        <div class="question-section" id="q141" data-correct-answer="B">
+            <span class="question-number">141.</span>
+            <span class="question-text">प्रयोगशाळेतील 'वॉल्युमेट्रिक फ्लास्क' (Volumetric Flask) कशासाठी वापरले जाते?</span>
+            <div class="options">
+                <label><input type="radio" name="q141" value="A"> A) द्रावण गरम करण्यासाठी</label>
+                <label><input type="radio" name="q141" value="B"> B) अचूक ज्ञात व्हॉल्यूमचे द्रावण तयार करण्यासाठी</label>
+                <label><input type="radio" name="q141" value="C"> C) द्रवाची घनता मोजण्यासाठी</label>
+                <label><input type="radio" name="q141" value="D"> D) मायक्रोस्कोपिक स्लाईड्स साठवण्यासाठी</label>
+            </div>
+            <div class="show-answer">**उत्तर:** B) अचूक ज्ञात व्हॉल्यूमचे द्रावण तयार करण्यासाठी</div>
+        </div>
+
+        <div class="question-section" id="q142" data-correct-answer="C">
+            <span class="question-number">142.</span>
+            <span class="question-text">'रक्त गोठण्याची प्रक्रिया' (Blood Clotting) सुरू करण्यासाठी कोणते घटक जबाबदार असतात?</span>
+            <div class="options">
+                <label><input type="radio" name="q142" value="A"> A) पांढऱ्या रक्तपेशी (WBC)</label>
+                <label><input type="radio" name="q142" value="B"> B) लाल रक्तपेशी (RBC)</label>
+                <label><input type="radio" name="q142" value="C"> C) प्लेटलेट्स (Platelets)</label>
+                <label><input type="radio" name="q142" value="D"> D) प्लाझ्मा</label>
+            </div>
+            <div class="show-answer">**उत्तर:** C) प्लेटलेट्स (Platelets)</div>
+        </div>
+
+        <div class="question-section" id="q143" data-correct-answer="A">
+            <span class="question-number">143.</span>
+            <span class="question-text">प्रयोगशाळेत 'पी.एच. मीटर' (pH Meter) चा वापर कशासाठी होतो?</span>
+            <div class="options">
+                <label><input type="radio" name="q143" value="A"> A) द्रावणाची आम्लता किंवा अल्कधर्मीता (Acidity/Alkalinity) मोजण्यासाठी</label>
+                <label><input type="radio" name="q143" value="B"> B) तापमान मोजण्यासाठी</label>
+                <label><input type="radio" name="q143" value="C"> C) घनता मोजण्यासाठी</label>
+                <label><input type="radio" name="q143" value="D"> D) प्रकाश तीव्रता मोजण्यासाठी</label>
+            </div>
+            <div class="show-answer">**उत्तर:** A) द्रावणाची आम्लता किंवा अल्कधर्मीता (Acidity/Alkalinity) मोजण्यासाठी</div>
+        </div>
+
+        <div class="question-section" id="q144" data-correct-answer="D">
+            <span class="question-number">144.</span>
+            <span class="question-text">जैविक नमुन्यांमध्ये (Biological Samples) 'फिक्सेटिव्ह' (Fixative) चा वापर कशासाठी केला जातो?</span>
+            <div class="options">
+                <label><input type="radio" name="q144" value="A"> A) नमुना थंड करण्यासाठी</label>
+                <label><input type="radio" name="q144" value="B"> B) नमुना पातळ करण्यासाठी</label>
+                <label><input type="radio" name="q144" value="C"> C) जीवाणूंची वाढ करण्यासाठी</label>
+                <label><input type="radio" name="q144" value="D"> D) पेशींची रचना जतन करण्यासाठी (Preservation of Cell Structure)</label>
+            </div>
+            <div class="show-answer">**उत्तर:** D) पेशींची रचना जतन करण्यासाठी (Preservation of Cell Structure)</div>
+        </div>
+
+        <div class="question-section" id="q145" data-correct-answer="B">
+            <span class="question-number">145.</span>
+            <span class="question-text">'सिरींज आणि निडल्स' (Syringes and Needles) कोणत्या बायोमेडिकल वेस्ट बॅगमध्ये टाकल्या जातात?</span>
+            <div class="options">
+                <label><input type="radio" name="q145" value="A"> A) पिवळी बॅग (Yellow Bag)</label>
+                <label><input type="radio" name="q145" value="B"> B) पांढरा/पारदर्शक कंटेनर (Sharps Container)</label>
+                <label><input type="radio" name="q145" value="C"> C) लाल बॅग (Red Bag)</label>
+                <label><input type="radio" name="q145" value="D"> D) निळी बॅग (Blue Bag)</label>
+            </div>
+            <div class="show-answer">**उत्तर:** B) पांढरा/पारदर्शक कंटेनर (Sharps Container)</div>
+        </div>
+
+        <div class="question-section" id="q146" data-correct-answer="C">
+            <span class="question-number">146.</span>
+            <span class="question-text">प्रयोगशाळेत 'मायक्रोपीपेट' (Micropipette) चा वापर कशासाठी होतो?</span>
+            <div class="options">
+                <label><input type="radio" name="q146" value="A"> A) मोठे व्हॉल्यूम मोजण्यासाठी</label>
+                <label><input type="radio" name="q146" value="B"> B) द्रावण गरम करण्यासाठी</label>
+                <label><input type="radio" name="q146" value="C"> C) अतिशय कमी आणि अचूक व्हॉल्यूमचे द्रव मोजण्यासाठी</label>
+                <label><input type="radio" name="q146" value="D"> D) नमुने साठवण्यासाठी</label>
+            </div>
+            <div class="show-answer">**उत्तर:** C) अतिशय कमी आणि अचूक व्हॉल्यूमचे द्रव मोजण्यासाठी</div>
+        </div>
+
+        <div class="question-section" id="q147" data-correct-answer="A">
+            <span class="question-number">147.</span>
+            <span class="question-text">हेमॅटोलॉजीमध्ये 'C.B.C.' (Complete Blood Count) चाचणी कोणत्या उपकरणाने केली जाते?</span>
+            <div class="options">
+                <label><input type="radio" name="q147" value="A"> A) रक्त विश्लेषक (Hematology Analyzer)</label>
+                <label><input type="radio" name="q147" value="B"> B) pH मीटर</label>
+                <label><input type="radio" name="q147" value="C"> C) ऑटोकलेव्ह</label>
+                <label><input type="radio" name="q147" value="D"> D) बॅरोमीटर</label>
+            </div>
+            <div class="show-answer">**उत्तर:** A) रक्त विश्लेषक (Hematology Analyzer)</div>
+        </div>
+
+        <div class="question-section" id="q148" data-correct-answer="D">
+            <span class="question-number">148.</span>
+            <span class="question-text">'पॅथॉलॉजी' (Pathology) चा अभ्यास कशाशी संबंधित आहे?</span>
+            <div class="options">
+                <label><input type="radio" name="q148" value="A"> A) प्राणीशास्त्र</label>
+                <label><input type="radio" name="q148" value="B"> B) वनस्पतिशास्त्र</label>
+                <label><input type="radio" name="q148" value="C"> C) धातू विज्ञान</label>
+                <label><input type="radio" name="q148" value="D"> D) रोग आणि त्यांचे परिणाम (Study of diseases)</label>
+            </div>
+            <div class="show-answer">**उत्तर:** D) रोग आणि त्यांचे परिणाम (Study of diseases)</div>
+        </div>
+
+        <div class="question-section" id="q149" data-correct-answer="C">
+            <span class="question-number">149.</span>
+            <span class="question-text">रासायनिक अपघातानंतर (Chemical Spillage) तात्काळ काय करावे?</span>
+            <div class="options">
+                <label><input type="radio" name="q149" value="A"> A) पाणी ओतावे</label>
+                <label><input type="radio" name="q149" value="B"> B) प्रयोगशाळा सोडून द्यावी</label>
+                <label><input type="radio" name="q149" value="C"> C) योग्य पीपीई वापरून 'स्पिल किट' (Spill Kit) ने साफ करावे</label>
+                <label><input type="radio" name="q149" value="D"> D) दुर्लक्ष करावे</label>
+            </div>
+            <div class="show-answer">**उत्तर:** C) योग्य पीपीई वापरून 'स्पिल किट' (Spill Kit) ने साफ करावे</div>
+        </div>
+
+        <div class="question-section" id="q150" data-correct-answer="A">
+            <span class="question-number">150.</span>
+            <span class="question-text">'बायोकेमिस्ट्री' मध्ये 'लिव्हर फंक्शन टेस्ट' (L.F.T.) मध्ये काय मोजले जाते?</span>
+            <div class="options">
+                <label><input type="radio" name="q150" value="A"> A) बिलीरुबिन आणि एन्झाईम्स (उदा. SGOT, SGPT)</label>
+                <label><input type="radio" name="q150" value="B"> B) रक्तातील साखर</label>
+                <label><input type="radio" name="q150" value="C"> C) हिमोग्लोबिन</label>
+                <label><input type="radio" name="q150" value="D"> D) मूत्रपिंडाचे कार्य (Kidney Function)</label>
+            </div>
+            <div class="show-answer">**उत्तर:** A) बिलीरुबिन आणि एन्झाईम्स (उदा. SGOT, SGPT)</div>
+        </div>
+
+        <div class="question-section" id="q151" data-correct-answer="B">
+            <span class="question-number">151.</span>
+            <span class="question-text">जैविक नमुने (Biological Samples) वाहतूक करताना कोणत्या नियमांचे पालन करणे आवश्यक आहे?</span>
+            <div class="options">
+                <label><input type="radio" name="q151" value="A"> A) सामान्य टपाल नियम</label>
+                <label><input type="radio" name="q151" value="B"> B) ट्रिपल पॅकेजिंग सिस्टम (Triple Packaging System)</label>
+                <label><input type="radio" name="q151" value="C"> C) केवळ कागदी पिशवीत</label>
+                <label><input type="radio" name="q151" value="D"> D) धातूच्या डब्यात</label>
+            </div>
+            <div class="show-answer">**उत्तर:** B) ट्रिपल पॅकेजिंग सिस्टम (Triple Packaging System)</div>
+        </div>
+
+        <div class="question-section" id="q152" data-correct-answer="A">
+            <span class="question-number">152.</span>
+            <span class="question-text">'स्टेरीलायझेशन' (Sterilization) चा अर्थ काय आहे?</span>
+            <div class="options">
+                <label><input type="radio" name="q152" value="A"> A) सर्व सूक्ष्मजीव (जीवाणू, बुरशी, विषाणू) नष्ट करणे</label>
+                <label><input type="radio" name="q152" value="B"> B) केवळ जीवाणू मारणे</label>
+                <label><input type="radio" name="q152" value="C"> C) नमुने थंड करणे</label>
+                <label><input type="radio" name="q152" value="D"> D) रसायने मिसळणे</label>
+            </div>
+            <div class="show-answer">**उत्तर:** A) सर्व सूक्ष्मजीव (जीवाणू, बुरशी, विषाणू) नष्ट करणे</div>
+        </div>
+
+        <div class="question-section" id="q153" data-correct-answer="C">
+            <span class="question-number">153.</span>
+            <span class="question-text">रक्तगट निश्चित करण्यासाठी (Blood Grouping) कोणत्या चाचणी पद्धतीचा वापर केला जातो?</span>
+            <div class="options">
+                <label><input type="radio" name="q153" value="A"> A) पीसीआर (PCR)</label>
+                <label><input type="radio" name="q153" value="B"> B) मायक्रोस्कोपिक स्टेनिंग</label>
+                <label><input type="radio" name="q153" value="C"> C) ऑग्लुटिनेशन (Agglutination) तंत्र</label>
+                <label><input type="radio" name="q153" value="D"> D) पीएच मोजमाप</label>
+            </div>
+            <div class="show-answer">**उत्तर:** C) ऑग्लुटिनेशन (Agglutination) तंत्र</div>
+        </div>
+
+        <div class="question-section" id="q154" data-correct-answer="B">
+            <span class="question-number">154.</span>
+            <span class="question-text">'नेफेलोमेट्री' (Nephelometry) या तंत्राचा उपयोग काय मोजण्यासाठी होतो?</span>
+            <div class="options">
+                <label><input type="radio" name="q154" value="A"> A) द्रावणाचा रंग</label>
+                <label><input type="radio" name="q154" value="B"> B) द्रावणातील ढगाळपणा (Turbidity) किंवा रोगप्रतिकार प्रथिने</label>
+                <label><input type="radio" name="q154" value="C"> C) तापमान</label>
+                <label><input type="radio" name="q154" value="D"> D) घनता</label>
+            </div>
+            <div class="show-answer">**उत्तर:** B) द्रावणातील ढगाळपणा (Turbidity) किंवा रोगप्रतिकार प्रथिने</div>
+        </div>
+
+        <div class="question-section" id="q155" data-correct-answer="A">
+            <span class="question-number">155.</span>
+            <span class="question-text">'फ्लो सायटोमेट्री' (Flow Cytometry) चा उपयोग प्रामुख्याने कशासाठी केला जातो?</span>
+            <div class="options">
+                <label><input type="radio" name="q155" value="A"> A) पेशींची संख्या आणि गुणधर्म तपासण्यासाठी</label>
+                <label><input type="radio" name="q155" value="B"> B) मातीचे विश्लेषण</label>
+                <label><input type="radio" name="q155" value="C"> C) मोठे जैविक नमुने वेगळे करणे</label>
+                <label><input type="radio" name="q155" value="D"> D) पाणी निर्जंतुक करणे</label>
+            </div>
+            <div class="show-answer">**उत्तर:** A) पेशींची संख्या आणि गुणधर्म तपासण्यासाठी</div>
+        </div>
+
+        <div class="question-section" id="q156" data-correct-answer="B">
+            <span class="question-number">156.</span>
+            <span class="question-text">प्रयोगशाळेतील 'हायरार्की ऑफ कंट्रोल्स' मध्ये सर्वात प्रभावी नियंत्रण कोणते मानले जाते?</span>
+            <div class="options">
+                <label><input type="radio" name="q156" value="A"> A) पीपीई वापरणे</label>
+                <label><input type="radio" name="q156" value="B"> B) धोकादायक वस्तू पूर्णपणे काढून टाकणे (Elimination)</label>
+                <label><input type="radio" name="q156" value="C"> C) प्रशासकीय नियंत्रण</label>
+                <label><input type="radio" name="q156" value="D"> D) इंजिनियरिंग नियंत्रण</label>
+            </div>
+            <div class="show-answer">**उत्तर:** B) धोकादायक वस्तू पूर्णपणे काढून टाकणे (Elimination)</div>
+        </div>
+
+        <div class="question-section" id="q157" data-correct-answer="C">
+            <span class="question-number">157.</span>
+            <span class="question-text">'बायोमेडिकल वेस्ट' मधील **लाल रंगाची पिशवी** कशासाठी वापरली जाते?</span>
+            <div class="options">
+                <label><input type="radio" name="q157" value="A"> A) मानवी अवयव</label>
+                <label><input type="radio" name="q157" value="B"> B) तीक्ष्ण वस्तू</label>
+                <label><input type="radio" name="q157" value="C"> C) दूषित प्लास्टिक (कॅथेटर, सिरिंज विना-निडल)</label>
+                <label><input type="radio" name="q157" value="D"> D) रासायनिक कचरा</label>
+            </div>
+            <div class="show-answer">**उत्तर:** C) दूषित प्लास्टिक (कॅथेटर, सिरिंज विना-निडल)</div>
+        </div>
+
+        <div class="question-section" id="q158" data-correct-answer="A">
+            <span class="question-number">158.</span>
+            <span class="question-text">मूत्रपिंडाचे कार्य (Kidney Function) तपासण्यासाठी कोणती चाचणी केली जाते?</span>
+            <div class="options">
+                <label><input type="radio" name="q158" value="A"> A) युरिया आणि क्रिएटिनिन (Urea & Creatinine)</label>
+                <label><input type="radio" name="q158" value="B"> B) हिमोग्लोबिन</label>
+                <label><input type="radio" name="q158" value="C"> C) टी.एस.एच. (TSH)</label>
+                <label><input type="radio" name="q158" value="D"> D) कोलेस्ट्रॉल</label>
+            </div>
+            <div class="show-answer">**उत्तर:** A) युरिया आणि क्रिएटिनिन (Urea & Creatinine)</div>
+        </div>
+
+        <div class="question-section" id="q159" data-correct-answer="B">
+            <span class="question-number">159.</span>
+            <span class="question-text">'रक्तदाब' (Blood Pressure) कशाने मोजला जातो?</span>
+            <div class="options">
+                <label><input type="radio" name="q159" value="A"> A) थर्मामीटर</label>
+                <label><input type="radio" name="q159" value="B"> B) स्फिग्मोमॅनोमीटर (Sphygmomanometer)</label>
+                <label><input type="radio" name="q159" value="C"> C) बॅरोमीटर</label>
+                <label><input type="radio" name="q159" value="D"> D) हायग्रोमीटर</label>
+            </div>
+            <div class="show-answer">**उत्तर:** B) स्फिग्मोमॅनोमीटर (Sphygmomanometer)</div>
+        </div>
+
+        <div class="question-section" id="q160" data-correct-answer="D">
+            <span class="question-number">160.</span>
+            <span class="question-text">प्रयोगशाळेत 'मायक्रोस्कोप' (Microscope) वापरताना, सर्वात मोठी मॅग्निफिकेशन (Magnification) असलेली लेन्स कोणती असते?</span>
+            <div class="options">
+                <label><input type="radio" name="q160" value="A"> A) 10x (Low Power)</label>
+                <label><input type="radio" name="q160" value="B"> B) 40x (High Power)</label>
+                <label><input type="radio" name="q160" value="C"> C) आयपीस (Eyepiece)</label>
+                <label><input type="radio" name="q160" value="D"> D) 100x (Oil Immersion)</label>
+            </div>
+            <div class="show-answer">**उत्तर:** D) 100x (Oil Immersion)</div>
+        </div>
+
+        <div class="question-section" id="q161" data-correct-answer="B">
+            <span class="question-number">161.</span>
+            <span class="question-text">'एलायझा' (ELISA) चाचणी कशासाठी वापरली जाते?</span>
+            <div class="options">
+                <label><input type="radio" name="q161" value="A"> A) जीवाणूंची वाढ मोजण्यासाठी</label>
+                <label><input type="radio" name="q161" value="B"> B) रक्त/नमुन्यांमध्ये प्रतिपिंड (Antibodies) किंवा प्रतिजन (Antigens) शोधण्यासाठी</label>
+                <label><input type="radio" name="q161" value="C"> C) रक्ताची घनता मोजण्यासाठी</label>
+                <label><input type="radio" name="q161" value="D"> D) रसायनांचे वजन करण्यासाठी</label>
+            </div>
+            <div class="show-answer">**उत्तर:** B) रक्त/नमुन्यांमध्ये प्रतिपिंड (Antibodies) किंवा प्रतिजन (Antigens) शोधण्यासाठी</div>
+        </div>
+
+        <div class="question-section" id="q162" data-correct-answer="C">
+            <span class="question-number">162.</span>
+            <span class="question-text">'इलेक्ट्रोफोरेसीस' (Electrophoresis) तंत्राचा उपयोग काय आहे?</span>
+            <div class="options">
+                <label><input type="radio" name="q162" value="A"> A) नमुने गरम करणे</label>
+                <label><input type="radio" name="q162" value="B"> B) द्रावणांचे मिश्रण करणे</label>
+                <label><input type="radio" name="q162" value="C"> C) डीएनए, प्रथिने किंवा आरएनए विद्युत क्षेत्राचा वापर करून वेगळे करणे</label>
+                <label><input type="radio" name="q162" value="D"> D) नमुने साठवणे</label>
+            </div>
+            <div class="show-answer">**उत्तर:** C) डीएनए, प्रथिने किंवा आरएनए विद्युत क्षेत्राचा वापर करून वेगळे करणे</div>
+        </div>
+
+        <div class="question-section" id="q163" data-correct-answer="A">
+            <span class="question-number">163.</span>
+            <span class="question-text">जैविक सुरक्षा कॅबिनेट (BSC) कोणत्या प्रकारचा एअर फ्लो (Air Flow) वापरते?</span>
+            <div class="options">
+                <label><input type="radio" name="q163" value="A"> A) लॅमिनार फ्लो (Laminar Flow)</label>
+                <label><input type="radio" name="q163" value="B"> B) टर्ब्युलंट फ्लो</label>
+                <label><input type="radio" name="q163" value="C"> C) रँडम फ्लो</label>
+                <label><input type="radio" name="q163" value="D"> D) उच्च दाब</label>
+            </div>
+            <div class="show-answer">**उत्तर:** A) लॅमिनार फ्लो (Laminar Flow)</div>
+        </div>
+
+        <div class="question-section" id="q164" data-correct-answer="D">
+            <span class="question-number">164.</span>
+            <span class="question-text">'वॉटर बाथ' (Water Bath) चा उपयोग प्रयोगशाळेत काय आहे?</span>
+            <div class="options">
+                <label><input type="radio" name="q164" value="A"> A) नमुने थंड करणे</label>
+                <label><input type="radio" name="q164" value="B"> B) व्हॉल्यूम मोजणे</label>
+                <label><input type="radio" name="q164" value="C"> C) नमुने निर्जंतुक करणे</label>
+                <label><input type="radio" name="q164" value="D"> D) स्थिर आणि नियंत्रित तापमानावर नमुने उबवणे (Incubate) किंवा प्रतिक्रिया देणे</label>
+            </div>
+            <div class="show-answer">**उत्तर:** D) स्थिर आणि नियंत्रित तापमानावर नमुने उबवणे (Incubate) किंवा प्रतिक्रिया देणे</div>
+        </div>
+
+        <div class="question-section" id="q165" data-correct-answer="B">
+            <span class="question-number">165.</span>
+            <span class="question-text">आरोग्य सेवा प्रयोगशाळेत 'नमुना स्वीकारण्याचे निकष' (Sample Rejection Criteria) काय असू शकतात?</span>
+            <div class="options">
+                <label><input type="radio" name="q165" value="A"> A) नमुना गरम असणे</label>
+                <label><input type="radio" name="q165" value="B"> B) नमुन्याचे लेबल गहाळ असणे किंवा चुकीचे असणे</label>
+                <label><input type="radio" name="q165" value="C"> C) नमुन्याचा रंग</label>
+                <label><input type="radio" name="q165" value="D"> D) नमुना खूप मोठा असणे</label>
+            </div>
+            <div class="show-answer">**उत्तर:** B) नमुन्याचे लेबल गहाळ असणे किंवा चुकीचे असणे</div>
+        </div>
+
+        <div class="question-section" id="q166" data-correct-answer="C">
+            <span class="question-number">166.</span>
+            <span class="question-text">'बायोकेमिस्ट्री' मध्ये 'बफर द्रावण' (Buffer Solution) कशासाठी वापरले जाते?</span>
+            <div class="options">
+                <label><input type="radio" name="q166" value="A"> A) द्रावणाचे तापमान वाढवण्यासाठी</label>
+                <label><input type="radio" name="q166" value="B"> B) नमुने साठवण्यासाठी</label>
+                <label><input type="radio" name="q166" value="C"> C) द्रावणाचा पीएच (pH) स्थिर ठेवण्यासाठी</label>
+                <label><input type="radio" name="q166" value="D"> D) नमुने वेगळे करण्यासाठी</label>
+            </div>
+            <div class="show-answer">**उत्तर:** C) द्रावणाचा पीएच (pH) स्थिर ठेवण्यासाठी</div>
+        </div>
+
+        <div class="question-section" id="q167" data-correct-answer="A">
+            <span class="question-number">167.</span>
+            <span class="question-text">प्रयोगशाळेतील 'हाइग्रोमीटर' (Hygrometer) कोणत्या भौतिक राशीचे मोजमाप करते?</span>
+            <div class="options">
+                <label><input type="radio" name="q167" value="A"> A) आर्द्रता (Humidity)</label>
+                <label><input type="radio" name="q167" value="B"> B) दाब (Pressure)</label>
+                <label><input type="radio" name="q167" value="C"> C) तापमान (Temperature)</label>
+                <label><input type="radio" name="q167" value="D"> D) प्रकाश (Light)</label>
+            </div>
+            <div class="show-answer">**उत्तर:** A) आर्द्रता (Humidity)</div>
+        </div>
+
+        <div class="question-section" id="q168" data-correct-answer="D">
+            <span class="question-number">168.</span>
+            <span class="question-text">'क्यू.सी.' (Quality Control) चा उद्देश काय आहे?</span>
+            <div class="options">
+                <label><input type="radio" name="q168" value="A"> A) नमुने जलद तपासणे</label>
+                <label><input type="radio" name="q168" value="B"> B) केवळ स्वस्त अभिकर्मक वापरणे</label>
+                <label><input type="radio" name="q168" value="C"> C) प्रयोगशाळेची साफसफाई करणे</label>
+                <label><input type="radio" name="q168" value="D"> D) चाचणीचे परिणाम अचूक आणि विश्वासार्ह आहेत याची खात्री करणे</label>
+            </div>
+            <div class="show-answer">**उत्तर:** D) चाचणीचे परिणाम अचूक आणि विश्वासार्ह आहेत याची खात्री करणे</div>
+        </div>
+
+        <div class="question-section" id="q169" data-correct-answer="B">
+            <span class="question-number">169.</span>
+            <span class="question-text">नमुन्यातील 'पोटॅशियम' (Potassium) आणि 'सोडियम' (Sodium) ची पातळी मोजण्यासाठी कोणते उपकरण वापरले जाते?</span>
+            <div class="options">
+                <label><input type="radio" name="q169" value="A"> A) ऑटोकलेव्ह</label>
+                <label><input type="radio" name="q169" value="B"> B) फ्लेम फोटोमीटर/आयनायझर (Flame Photometer/Ionizer)</label>
+                <label><input type="radio" name="q169" value="C"> C) मायक्रोपीपेट</label>
+                <label><input type="radio" name="q169" value="D"> D) पीएच मीटर</label>
+            </div>
+            <div class="show-answer">**उत्तर:** B) फ्लेम फोटोमीटर/आयनायझर (Flame Photometer/Ionizer)</div>
+        </div>
+
+        <div class="question-section" id="q170" data-correct-answer="C">
+            <span class="question-number">170.</span>
+            <span class="question-text">'पायोजन मुक्त' (Pyrogen Free) म्हणजे काय?</span>
+            <div class="options">
+                <label><input type="radio" name="q170" value="A"> A) जीवाणूमुक्त</label>
+                <label><input type="radio" name="q170" value="B"> B) विषमुक्त</label>
+                <label><input type="radio" name="q170" value="C"> C) ताप निर्माण करणाऱ्या पदार्थांपासून (Fever-causing substances) मुक्त</label>
+                <label><input type="radio" name="q170" value="D"> D) रसायनांपासून मुक्त</label>
+            </div>
+            <div class="show-answer">**उत्तर:** C) ताप निर्माण करणाऱ्या पदार्थांपासून (Fever-causing substances) मुक्त</div>
+        </div>
+
+        <div class="question-section" id="q171" data-correct-answer="D">
+            <span class="question-number">171.</span>
+            <span class="question-text">रक्त गोठण्यास प्रतिबंध करण्यासाठी (Anti-coagulation) सामान्यतः कोणती रासायनिक वस्तू वापरली जाते?</span>
+            <div class="options">
+                <label><input type="radio" name="q171" value="A"> A) फॉर्मेलीन</label>
+                <label><input type="radio" name="q171" value="B"> B) आयोडीन</label>
+                <label><input type="radio" name="q171" value="C"> C) सोडियम क्लोराईड</label>
+                <label><input type="radio" name="q171" value="D"> D) ई.डी.टी.ए. (EDTA) किंवा हेपॅरिन (Heparin)</label>
+            </div>
+            <div class="show-answer">**उत्तर:** D) ई.डी.टी.ए. (EDTA) किंवा हेपॅरिन (Heparin)</div>
+        </div>
+
+        <div class="question-section" id="q172" data-correct-answer="A">
+            <span class="question-number">172.</span>
+            <span class="question-text">'युरीन रूटीन' (Urine Routine) तपासणीमध्ये काय पाहिले जात नाही?</span>
+            <div class="options">
+                <label><input type="radio" name="q172" value="A"> A) डीएनए सिक्वेन्सिंग</label>
+                <label><input type="radio" name="q172" value="B"> B) ग्लुकोजची उपस्थिती</label>
+                <label><input type="radio" name="q172" value="C"> C) लाल रक्तपेशी</label>
+                <label><input type="radio" name="q172" value="D"> D) पीएच</label>
+            </div>
+            <div class="show-answer">**उत्तर:** A) डीएनए सिक्वेन्सिंग</div>
+        </div>
+
+        <div class="question-section" id="q173" data-correct-answer="C">
+            <span class="question-number">173.</span>
+            <span class="question-text">प्रयोगशाळेतील 'वजन नियंत्रण' (Weight Control) मध्ये, कोणते उपकरण वापरले जाते?</span>
+            <div class="options">
+                <label><input type="radio" name="q173" value="A"> A) थर्मामीटर</label>
+                <label><input type="radio" name="q173" value="B"> B) सेंट्रीफ्यूज</label>
+                <label><input type="radio" name="q173" value="C"> C) विश्लेषणात्मक तराजू (Analytical Balance)</label>
+                <label><input type="radio" name="q173" value="D"> D) व्हॉल्युमेट्रिक फ्लास्क</label>
+            </div>
+            <div class="show-answer">**उत्तर:** C) विश्लेषणात्मक तराजू (Analytical Balance)</div>
+        </div>
+
+        <div class="question-section" id="q174" data-correct-answer="B">
+            <span class="question-number">174.</span>
+            <span class="question-text">जैविक सुरक्षा कॅबिनेट (BSC) कोणत्या प्रकारच्या सूक्ष्मजीवांना हाताळण्यासाठी वापरले जाते?</span>
+            <div class="options">
+                <label><input type="radio" name="q174" value="A"> A) केवळ नॉन-पॅथोजेनिक (Non-pathogenic)</label>
+                <label><input type="radio" name="q174" value="B"> B) धोकादायक, संसर्गजन्य (Infectious) आणि रोगजनक (Pathogenic)</label>
+                <label><input type="radio" name="q174" value="C"> C) केवळ रासायनिक नमुने</label>
+                <label><input type="radio" name="q174" value="D"> D) केवळ गरम नमुने</label>
+            </div>
+            <div class="show-answer">**उत्तर:** B) धोकादायक, संसर्गजन्य (Infectious) आणि रोगजनक (Pathogenic)</div>
+        </div>
+
+        <div class="question-section" id="q175" data-correct-answer="A">
+            <span class="question-number">175.</span>
+            <span class="question-text">रुग्णवाहिका (Ambulance) बोलावण्यासाठी कोणता राष्ट्रीय आपत्कालीन क्रमांक वापरला जातो?</span>
+            <div class="options">
+                <label><input type="radio" name="q175" value="A"> A) 108</label>
+                <label><input type="radio" name="q175" value="B"> B) 100</label>
+                <label><input type="radio" name="q175" value="C"> C) 101</label>
+                <label><input type="radio" name="q175" value="D"> D) 102</label>
+            </div>
+            <div class="show-answer">**उत्तर:** A) 108 (अनेक राज्यांमध्ये 102 देखील वापरला जातो, पण 108 हा सामान्यतः आपत्कालीन वैद्यकीय सेवा क्रमांक आहे)</div>
+        </div>
+
+        <div class="question-section" id="q176" data-correct-answer="C">
+            <span class="question-number">176.</span>
+            <span class="question-text">प्रयोगशाळेत सामान्यतः वापरले जाणारे निर्जंतुकीकरण करणारे रसायन (Disinfectant) कोणते आहे?</span>
+            <div class="options">
+                <label><input type="radio" name="q176" value="A"> A) सल्फ्यूरिक ॲसिड</label>
+                <label><input type="radio" name="q176" value="B"> B) सोडियम क्लोराईड</label>
+                <label><input type="radio" name="q176" value="C"> C) इथेनॉल (Alcohol) किंवा सोडियम हायपोक्लोराइट (Sodium Hypochlorite)</label>
+                <label><input type="radio" name="q176" value="D"> D) डिस्टिल्ड वॉटर</label>
+            </div>
+            <div class="show-answer">**उत्तर:** C) इथेनॉल (Alcohol) किंवा सोडियम हायपोक्लोराइट (Sodium Hypochlorite)</div>
+        </div>
+
+        <div class="question-section" id="q177" data-correct-answer="B">
+            <span class="question-number">177.</span>
+            <span class="question-text">नमुन्यातील 'प्रथिने' (Proteins) मोजण्यासाठी कोणती सामान्य बायोकेमिस्ट्री पद्धत वापरली जाते?</span>
+            <div class="options">
+                <label><input type="radio" name="q177" value="A"> A) ग्राम स्टेनिंग</label>
+                <label><input type="radio" name="q177" value="B"> B) बायोरेट (Biuret) किंवा लोरी (Lowry) पद्धत</label>
+                <label><input type="radio" name="q177" value="C"> C) पीसीआर</label>
+                <label><input type="radio" name="q177" value="D"> D) ब्लड ग्रुपिंग</label>
+            </div>
+            <div class="show-answer">**उत्तर:** B) बायोरेट (Biuret) किंवा लोरी (Lowry) पद्धत</div>
+        </div>
+
+        <div class="question-section" id="q178" data-correct-answer="A">
+            <span class="question-number">178.</span>
+            <span class="question-text">'हिस्टोपॅथॉलॉजी' (Histopathology) मध्ये कशाचा अभ्यास केला जातो?</span>
+            <div class="options">
+                <label><input type="radio" name="q178" value="A"> A) रोगग्रस्त ऊती (Diseased Tissues)</label>
+                <label><input type="radio" name="q178" value="B"> B) जीवाणू</label>
+                <label><input type="radio" name="q178" value="C"> C) रक्त</label>
+                <label><input type="radio" name="q178" value="D"> D) रासायनिक संयुगे</label>
+            </div>
+            <div class="show-answer">**उत्तर:** A) रोगग्रस्त ऊती (Diseased Tissues)</div>
+        </div>
+
+        <div class="question-section" id="q179" data-correct-answer="C">
+            <span class="question-number">179.</span>
+            <span class="question-text">एका तासात 900 किलोमीटर प्रवास करणाऱ्या विमानाचा वेग **मीटर प्रति सेकंद** मध्ये किती असेल?</span>
+            <div class="options">
+                <label><input type="radio" name="q179" value="A"> A) $25 \text{ मी/से}$</label>
+                <label><input type="radio" name="q179" value="B"> B) $150 \text{ मी/से}$</label>
+                <label><input type="radio" name="q179" value="C"> C) $250 \text{ मी/से}$</label>
+                <label><input type="radio" name="q179" value="D"> D) $90 \text{ मी/से}$</label>
+            </div>
+            <div class="show-answer">**उत्तर:** C) $250 \text{ मी/से}$ (900 km/h * 5/18 = 250 m/s)</div>
+        </div>
+
+        <div class="question-section" id="q180" data-correct-answer="A">
+            <span class="question-number">180.</span>
+            <span class="question-text">'पायथॅगोरस प्रमेय' (Pythagoras Theorem) कोणत्या भूमिती आकृतीशी संबंधित आहे?</span>
+            <div class="options">
+                <label><input type="radio" name="q180" value="A"> A) काटकोन त्रिकोण (Right-angled triangle)</label>
+                <label><input type="radio" name="q180" value="B"> B) वर्तुळ</label>
+                <label><input type="radio" name="q180" value="C"> C) चौरस</label>
+                <label><input type="radio" name="q180" value="D"> D) आयत</label>
+            </div>
+            <div class="show-answer">**उत्तर:** A) काटकोन त्रिकोण (Right-angled triangle)</div>
+        </div>
+
+        <div class="question-section" id="q181" data-correct-answer="B">
+            <span class="question-number">181.</span>
+            <span class="question-text">प्रयोगशाळेत 'मायक्रोबायोलॉजी' मध्ये 'कॉलोनी काउंटर' (Colony Counter) कशासाठी वापरले जाते?</span>
+            <div class="options">
+                <label><input type="radio" name="q181" value="A"> A) जीवाणूंचे वजन</label>
+                <label><input type="radio" name="q181" value="B"> B) कल्चर प्लेटवर वाढलेल्या जीवाणूंच्या वसाहती (Colonies) मोजण्यासाठी</label>
+                <label><input type="radio" name="q181" value="C"> C) नमुने निर्जंतुक करण्यासाठी</label>
+                <label><input type="radio" name="q181" value="D"> D) पाण्याचे pH मोजण्यासाठी</label>
+            </div>
+            <div class="show-answer">**उत्तर:** B) कल्चर प्लेटवर वाढलेल्या जीवाणूंच्या वसाहती (Colonies) मोजण्यासाठी</div>
+        </div>
+
+        <div class="question-section" id="q182" data-correct-answer="C">
+            <span class="question-number">182.</span>
+            <span class="question-text">'आरएच फॅक्टर' (Rh Factor) चा संबंध कोणत्या चाचणीशी आहे?</span>
+            <div class="options">
+                <label><input type="radio" name="q182" value="A"> A) थायरॉईड चाचणी</label>
+                <label><input type="radio" name="q182" value="B"> B) रक्तातील साखर</label>
+                <label><input type="radio" name="q182" value="C"> C) रक्त गट (Blood Grouping)</label>
+                <label><input type="radio" name="q182" value="D"> D) मूत्रपिंड कार्य</label>
+            </div>
+            <div class="show-answer">**उत्तर:** C) रक्त गट (Blood Grouping)</div>
+        </div>
+
+        <div class="question-section" id="q183" data-correct-answer="A">
+            <span class="question-number">183.</span>
+            <span class="question-text">'पोट साफ नसणे' याकरिता वापरला जाणारा वैद्यकीय शब्द (Medical Term) कोणता?</span>
+            <div class="options">
+                <label><input type="radio" name="q183" value="A"> A) कॉन्स्टिपेशन (Constipation)</label>
+                <label><input type="radio" name="q183" value="B"> B) डायरिया</label>
+                <label><input type="radio" name="q183" value="C"> C) ॲनिमिया</label>
+                <label><input type="radio" name="q183" value="D"> D) ताप</label>
+            </div>
+            <div class="show-answer">**उत्तर:** A) कॉन्स्टिपेशन (Constipation)</div>
+        </div>
+
+        <div class="question-section" id="q184" data-correct-answer="B">
+            <span class="question-number">184.</span>
+            <span class="question-text">'ऑटोकलेव्ह' (Autoclave) मध्ये निर्जंतुकीकरण कशाच्या मदतीने केले जाते?</span>
+            <div class="options">
+                <label><input type="radio" name="q184" value="A"> A) थंड हवा</label>
+                <label><input type="radio" name="q184" value="B"> B) उच्च दाब असलेली वाफ (High-pressure steam)</label>
+                <label><input type="radio" name="q184" value="C"> C) थेट आग</label>
+                <label><input type="radio" name="q184" value="D"> D) रसायने</label>
+            </div>
+            <div class="show-answer">**उत्तर:** B) उच्च दाब असलेली वाफ (High-pressure steam)</div>
+        </div>
+
+        <div class="question-section" id="q185" data-correct-answer="D">
+            <span class="question-number">185.</span>
+            <span class="question-text">'अल्कलाइन फॉस्फेटेज' (Alkaline Phosphatase - ALP) ही चाचणी कोणत्या अवयवाच्या कार्याशी संबंधित आहे?</span>
+            <div class="options">
+                <label><input type="radio" name="q185" value="A"> A) हृदय</label>
+                <label><input type="radio" name="q185" value="B"> B) मूत्रपिंड</label>
+                <label><input type="radio" name="q185" value="C"> C) फुफ्फुसे</label>
+                <label><input type="radio" name="q185" value="D"> D) यकृत (Liver) आणि हाडे (Bones)</label>
+            </div>
+            <div class="show-answer">**उत्तर:** D) यकृत (Liver) आणि हाडे (Bones)</div>
+        </div>
+
+        <div class="question-section" id="q186" data-correct-answer="C">
+            <span class="question-number">186.</span>
+            <span class="question-text">प्रयोगशाळेतील सुरक्षिततेसाठी 'फायर ब्लँकेट' (Fire Blanket) चा उपयोग काय आहे?</span>
+            <div class="options">
+                <label><input type="radio" name="q186" value="A"> A) रासायनिक स्पिल साफ करणे</label>
+                <label><input type="radio" name="q186" value="B"> B) वस्तू झाकणे</label>
+                <label><input type="radio" name="q186" value="C"> C) आग लागलेल्या व्यक्तीला गुंडाळून आग विझवणे</label>
+                <label><input type="radio" name="q186" value="D"> D) वस्तू गरम ठेवणे</label>
+            </div>
+            <div class="show-answer">**उत्तर:** C) आग लागलेल्या व्यक्तीला गुंडाळून आग विझवणे</div>
+        </div>
+
+        <div class="question-section" id="q187" data-correct-answer="A">
+            <span class="question-number">187.</span>
+            <span class="question-text">'कॅलिबरेशन' (Calibration) म्हणजे काय?</span>
+            <div class="options">
+                <label><input type="radio" name="q187" value="A"> A) उपकरणाच्या मापनाची अचूकता प्रमाणित मानकाशी जुळवणे</label>
+                <label><input type="radio" name="q187" value="B"> B) उपकरणे रंगवणे</label>
+                <label><input type="radio" name="q187" value="C"> C) उपकरणे स्वच्छ करणे</label>
+                <label><input type="radio" name="q187" value="D"> D) उपकरणे साठवणे</label>
+            </div>
+            <div class="show-answer">**उत्तर:** A) उपकरणाच्या मापनाची अचूकता प्रमाणित मानकाशी जुळवणे</div>
+        </div>
+
+        <div class="question-section" id="q188" data-correct-answer="B">
+            <span class="question-number">188.</span>
+            <span class="question-text">प्रयोगशाळेतील 'संवर्धन माध्यम' (Culture Media) मध्ये कशाचा समावेश असतो?</span>
+            <div class="options">
+                <label><input type="radio" name="q188" value="A"> A) केवळ पाणी आणि मीठ</label>
+                <label><input type="radio" name="q188" value="B"> B) जीवाणूंच्या वाढीसाठी आवश्यक पोषक घटक</label>
+                <label><input type="radio" name="q188" value="C"> C) केवळ ॲसिड</label>
+                <label><input type="radio" name="q188" value="D"> D) विषारी रसायने</label>
+            </div>
+            <div class="show-answer">**उत्तर:** B) जीवाणूंच्या वाढीसाठी आवश्यक पोषक घटक</div>
+        </div>
+
+        <div class="question-section" id="q189" data-correct-answer="C">
+            <span class="question-number">189.</span>
+            <span class="question-text">रोगप्रतिकार शक्ती (Immunity) तपासण्यासाठी कोणती चाचणी केली जाते?</span>
+            <div class="options">
+                <label><input type="radio" name="q189" value="A"> A) हिमोग्लोबिन</label>
+                <label><input type="radio" name="q189" value="B"> B) युरिया</label>
+                <label><input type="radio" name="q189" value="C"> C) सी.आर.पी. (CRP), डब्ल्यू.बी.सी. काउंट (WBC Count) आणि अँटीबॉडी चाचण्या</label>
+                <label><input type="radio" name="q189" value="D"> D) कोलेस्ट्रॉल</label>
+            </div>
+            <div class="show-answer">**उत्तर:** C) सी.आर.पी. (CRP), डब्ल्यू.बी.सी. काउंट (WBC Count) आणि अँटीबॉडी चाचण्या</div>
+        </div>
+
+        <div class="question-section" id="q190" data-correct-answer="D">
+            <span class="question-number">190.</span>
+            <span class="question-text">प्रयोगशाळेतील 'फ्यूम हूड' (Fume Hood) कशासाठी वापरले जाते?</span>
+            <div class="options">
+                <label><input type="radio" name="q190" value="A"> A) नमुने निर्जंतुक करणे</label>
+                <label><input type="radio" name="q190" value="B"> B) तापमानाचे नियमन</label>
+                <label><input type="radio" name="q190" value="C"> C) अचूक वजन मोजणे</label>
+                <label><input type="radio" name="q190" value="D"> D) धोकादायक रासायनिक धूर (Vapors) बाहेर काढण्यासाठी आणि कर्मचाऱ्यांचे संरक्षण करण्यासाठी</label>
+            </div>
+            <div class="show-answer">**उत्तर:** D) धोकादायक रासायनिक धूर (Vapors) बाहेर काढण्यासाठी आणि कर्मचाऱ्यांचे संरक्षण करण्यासाठी</div>
+        </div>
+
+        <div class="question-section" id="q191" data-correct-answer="A">
+            <span class="question-number">191.</span>
+            <span class="question-text">'सी.टी. स्कॅन' (CT Scan) मध्ये कोणत्या तंत्रज्ञानाचा वापर केला जातो?</span>
+            <div class="options">
+                <label><input type="radio" name="q191" value="A"> A) एक्स-रे (X-rays)</label>
+                <label><input type="radio" name="q191" value="B"> B) ध्वनी लहरी</label>
+                <label><input type="radio" name="q191" value="C"> C) चुंबकीय क्षेत्र</label>
+                <label><input type="radio" name="q191" value="D"> D) उष्णता</label>
+            </div>
+            <div class="show-answer">**उत्तर:** A) एक्स-रे (X-rays)</div>
+        </div>
+
+        <div class="question-section" id="q192" data-correct-answer="B">
+            <span class="question-number">192.</span>
+            <span class="question-text">'बायोमेडिकल वेस्ट' मधील **पिवळी पिशवी** कशासाठी वापरली जाते?</span>
+            <div class="options">
+                <label><input type="radio" name="q192" value="A"> A) काच आणि धातू</label>
+                <label><input type="radio" name="q192" value="B"> B) मानवी शारीरिक कचरा आणि दूषित ड्रेसिंग (Human anatomical waste & contaminated dressings)</label>
+                <label><input type="radio" name="q192" value="C"> C) सामान्य कागदी कचरा</label>
+                <label><input type="radio" name="q192" value="D"> D) दूषित प्लास्टिक</label>
+            </div>
+            <div class="show-answer">**उत्तर:** B) मानवी शारीरिक कचरा आणि दूषित ड्रेसिंग (Human anatomical waste & contaminated dressings)</div>
+        </div>
+
+        <div class="question-section" id="q193" data-correct-answer="C">
+            <span class="question-number">193.</span>
+            <span class="question-text">'मायक्रोबायोलॉजी' मध्ये 'बॅक्टेरिया' (Bacteria) कशाच्या मदतीने पाहिला जातो?</span>
+            <div class="options">
+                <label><input type="radio" name="q193" value="A"> A) टेलिस्कोप</label>
+                <label><input type="radio" name="q193" value="B"> B) मॅग्निफायिंग ग्लास</label>
+                <label><input type="radio" name="q193" value="C"> C) मायक्रोस्कोप (Microscope)</label>
+                <label><input type="radio" name="q193" value="D"> D) सेन्ट्रीफ्यूज</label>
+            </div>
+            <div class="show-answer">**उत्तर:** C) मायक्रोस्कोप (Microscope)</div>
+        </div>
+
+        <div class="question-section" id="q194" data-correct-answer="A">
+            <span class="question-number">194.</span>
+            <span class="question-text">'सीरम' (Serum) आणि 'प्लाझ्मा' (Plasma) मध्ये मुख्य फरक काय आहे?</span>
+            <div class="options">
+                <label><input type="radio" name="q194" value="A"> A) सीरममध्ये फायब्रिनोजेन (Fibrinogen) नसतो, प्लाझ्मामध्ये असतो.</label>
+                <label><input type="radio" name="q194" value="B"> B) सीरममध्ये प्रथिने नसतात.</label>
+                <label><input type="radio" name="q194" value="C"> C) प्लाझ्मा गोठलेला असतो.</label>
+                <label><input type="radio" name="q194" value="D"> D) सीरम जास्त लाल असतो.</label>
+            </div>
+            <div class="show-answer">**उत्तर:** A) सीरममध्ये फायब्रिनोजेन (Fibrinogen) नसतो, प्लाझ्मामध्ये असतो.</div>
+        </div>
+
+        <div class="question-section" id="q195" data-correct-answer="D">
+            <span class="question-number">195.</span>
+            <span class="question-text">'रासायनिक सुरक्षितता' मध्ये, धोकादायक रसायनांना लेबल लावण्याचे उद्दिष्ट काय आहे?</span>
+            <div class="options">
+                <label><input type="radio" name="q195" value="A"> A) केवळ कायद्याचे पालन करणे</label>
+                <label><input type="radio" name="q195" value="B"> B) रसायन सुंदर दिसावे</label>
+                <label><input type="radio" name="q195" value="C"> C) त्याचा वास ओळखणे</label>
+                <label><input type="radio" name="q195" value="D"> D) कर्मचाऱ्यांना धोक्यांची माहिती देणे आणि सुरक्षित हाताळणी सुनिश्चित करणे</label>
+            </div>
+            <div class="show-answer">**उत्तर:** D) कर्मचाऱ्यांना धोक्यांची माहिती देणे आणि सुरक्षित हाताळणी सुनिश्चित करणे</div>
+        </div>
+
+        <div class="question-section" id="q196" data-correct-answer="C">
+            <span class="question-number">196.</span>
+            <span class="question-text">'आय.ई.सी.' (IEC) म्हणजे काय?</span>
+            <div class="options">
+                <label><input type="radio" name="q196" value="A"> A) Indian Environment Council</label>
+                <label><input type="radio" name="q196" value="B"> B) Internal Exam Committee</label>
+                <label><input type="radio" name="q196" value="C"> C) माहिती, शिक्षण आणि संवाद (Information, Education and Communication)</label>
+                <label><input type="radio" name="q196" value="D"> D) International Energy Corporation</label>
+            </div>
+            <div class="show-answer">**उत्तर:** C) माहिती, शिक्षण आणि संवाद (Information, Education and Communication)</div>
+        </div>
+
+        <div class="question-section" id="q197" data-correct-answer="A">
+            <span class="question-number">197.</span>
+            <span class="question-text">पाण्याचे 'गोठण बिंदू' (Freezing Point) किती असतो?</span>
+            <div class="options">
+                <label><input type="radio" name="q197" value="A"> A) $0^{\circ}\text{C}$</label>
+                <label><input type="radio" name="q197" value="B"> B) $100^{\circ}\text{C}$</label>
+                <label><input type="radio" name="q197" value="C"> C) $50^{\circ}\text{C}$</label>
+                <label><input type="radio" name="q197" value="D"> D) $4^{\circ}\text{C}$</label>
+            </div>
+            <div class="show-answer">**उत्तर:** A) $0^{\circ}\text{C}$</div>
+        </div>
+
+        <div class="question-section" id="q198" data-correct-answer="D">
+            <span class="question-number">198.</span>
+            <span class="question-text">'प्रयोगशाळा तंत्रज्ञ' म्हणून, 'नमुना संकलना' (Sample Collection) मध्ये कोणती गोष्ट सर्वात महत्त्वाची आहे?</span>
+            <div class="options">
+                <label><input type="radio" name="q198" value="A"> A) नमुना गरम करणे</label>
+                <label><input type="radio" name="q198" value="B"> B) मोठी व्हॉल्यूम घेणे</label>
+                <label><input type="radio" name="q198" value="C"> C) कोणत्याही कंटेनरमध्ये घेणे</label>
+                <label><input type="radio" name="q198" value="D"> D) योग्य वेळी, योग्य कंटेनरमध्ये आणि अचूक ओळख (Labeling) सह संकलन</label>
+            </div>
+            <div class="show-answer">**उत्तर:** D) योग्य वेळी, योग्य कंटेनरमध्ये आणि अचूक ओळख (Labeling) सह संकलन</div>
+        </div>
+
+        <div class="question-section" id="q199" data-correct-answer="B">
+            <span class="question-number">199.</span>
+            <span class="question-text">Fill in the blanks: 'The team was happy **____** their victory.'</span>
+            <div class="options">
+                <label><input type="radio" name="q199" value="A"> A) in</label>
+                <label><input type="radio" name="q199" value="B"> B) about</label>
+                <label><input type="radio" name="q199" value="C"> C) for</label>
+                <label><input type="radio" name="q199" value="D"> D) with</label>
+            </div>
+            <div class="show-answer">**उत्तर:** B) about</div>
+        </div>
+
+        <div class="question-section" id="q200" data-correct-answer="A">
+            <span class="question-number">200.</span>
+            <span class="question-text">'डीएनए' (DNA) चा अभ्यास करणाऱ्या विज्ञान शाखेला काय म्हणतात?</span>
+            <div class="options">
+                <label><input type="radio" name="q200" value="A"> A) मॉलिक्युलर बायोलॉजी (Molecular Biology)</label>
+                <label><input type="radio" name="q200" value="B"> B) एस्ट्रोनॉमी</label>
+                <label><input type="radio" name="q200" value="C"> C) जियोलॉजी</label>
+                <label><input type="radio" name="q200" value="D"> D) ओशनोग्राफी</label>
+            </div>
+            <div class="show-answer">**उत्तर:** A) मॉलिक्युलर बायोलॉजी (Molecular Biology)</div>
+        </div>
+
+        <button class="submit-btn" onclick="checkAnswers(121, 200)">उत्तर तपासा</button>
+        <div id="results" class="result"></div>
+    </div>
+
+    <script>
+        function checkAnswers(start, end) {
+            let correctCount = 0;
+            const totalQuestions = end - start + 1;
+            const resultsDiv = document.getElementById('results');
+            let allAnswered = true;
+
+            for (let i = start; i <= end; i++) {
+                const qId = `q${i}`;
+                const questionDiv = document.getElementById(qId);
+                
+                // प्रश्न अस्तित्वात असल्याची खात्री करा
+                if (!questionDiv) continue;
+
+                const correctAnswer = questionDiv.getAttribute('data-correct-answer');
+                const selectedOption = document.querySelector(`input[name="${qId}"]:checked`);
+                const showAnswerDiv = questionDiv.querySelector('.show-answer');
+
+                // मागील हायलाइट्स आणि आन्सर शो हटवा
+                const options = questionDiv.querySelectorAll('label');
+                options.forEach(label => {
+                    label.style.backgroundColor = '';
+                    label.style.color = '#333';
+                });
+                showAnswerDiv.style.display = 'none';
+
+                if (!selectedOption) {
+                    allAnswered = false;
+                    // निवड न झाल्यास, उत्तर हायलाइट करा
+                    showAnswerDiv.style.display = 'block';
+                    continue;
+                }
+
+                const selectedValue = selectedOption.value;
+
+                if (selectedValue === correctAnswer) {
+                    correctCount++;
+                    // अचूक उत्तरासाठी हिरवा रंग
+                    selectedOption.closest('label').style.backgroundColor = '#d4edda';
+                    selectedOption.closest('label').style.color = '#155724';
+                } else {
+                    // चुकीच्या उत्तरासाठी लाल रंग
+                    selectedOption.closest('label').style.backgroundColor = '#f8d7da';
+                    selectedOption.closest('label').style.color = '#721c24';
+                    // अचूक उत्तर दर्शवा
+                    showAnswerDiv.style.display = 'block';
+                }
+            }
+
+            if (!allAnswered) {
+                resultsDiv.innerHTML = `**सूचना:** तुम्ही सर्व प्रश्नांची उत्तरे दिली नाहीत. कृपया सर्व प्रश्न तपासा. न सोडलेल्या प्रश्नांसाठी अचूक उत्तरे खाली दर्शविली आहेत.`;
+                resultsDiv.className = 'result incorrect-answer';
+                resultsDiv.style.display = 'block';
+            } else {
+                const percentage = ((correctCount / totalQuestions) * 100).toFixed(2);
+                resultsDiv.innerHTML = `तुम्ही ${totalQuestions} पैकी **${correctCount}** प्रश्नांची अचूक उत्तरे दिली आहेत. (${percentage}%)`;
+                resultsDiv.className = (correctCount >= totalQuestions * 0.6) ? 'result correct-answer' : 'result incorrect-answer';
+                resultsDiv.style.display = 'block';
+            }
+        }
+
+        // जर ही स्वतंत्र फाईल असेल तर, येथे checkAnswers(121, 200) कॉल होईल.
+        // जर मागील 1 ते 120 प्रश्नांच्या फाईलमध्ये जोडला असेल, तर checkAnswers(1, 200) किंवा त्यानुसार बदल करावा लागेल.
+        // मी येथे फक्त 121 ते 200 ची तपासणी सेट केली आहे.
+    </script>
 </body>
 </html>
